@@ -1,0 +1,119 @@
+@media screen and (max-width: 1800px) {
+    .site-header .site-menu .all-content .logo {
+        left: 20px;
+    }
+    .site-header .site-menu .all-content .button-right button {
+        right: 20px;
+    }
+    .site-header .site-info {
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .site-header .site-menu .all-content .menu-center ul li {
+        padding: 0 20px;
+    }
+    .site-header .site-menu .all-content .menu-center {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .site-header .site-menu .all-content .menu-center {
+        display: none;
+    }
+    .site-header .site-menu .all-content .logo {
+        top: 26px;
+    }
+    .site-header .site-menu .all-content .button-right button {
+        display: none;
+    }
+    .site-header .menu-hide {
+        display: block;
+        top: 35px;
+        right: 20px;
+    }
+    .site-page-title .all-content {
+        padding: 160px 20px;
+    }
+    .site-content {
+        padding: 80px 20px;
+    }
+    .site-wrapper {
+        overflow: hidden;
+    }
+    .site-footer .right {
+        padding: 80px 0 0 40px;
+    }
+    .site-header .about-us a {
+        border-bottom: 2px solid #fff;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .site-footer .right {
+        padding: 40px 20px;
+    }
+    .site-footer .right .all-content {
+        display: flex;
+    }
+    .screen-991-right {
+        padding: 0px 60px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .site-footer .right .all-content {
+        display: contents;
+    }
+    .screen-991-right {
+        padding: 0px 10px;
+    }
+    .site-page-title .content h1 {
+        font-size: 90px;
+        line-height: 90px;
+    }
+    .site-page-title .all-content {
+        padding: 120px 10px;
+    }
+    .site-info {
+        display: none;
+    }
+    .site-header .menu-991 {
+        top: 100px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .site-content {
+        padding: 50px 10px;
+    }
+    .site-page-title .content h1 {
+        font-size: 60px;
+        line-height: 60px;
+    }
+    .site-page-title .all-content {
+        padding: 90px 10px;
+    }
+    .site-footer .end .right-info ul li {
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .site-content {
+        padding: 50px 10px;
+    }
+    .site-page-title .content h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+    .site-page-title .all-content {
+        padding: 70px 10px;
+    }
+    .site-footer .end .right-info ul li {
+        padding: 0 10px;
+    }
+}
