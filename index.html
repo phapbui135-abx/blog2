@@ -13,12 +13,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <script src="./script.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./responsive.css">
+
 
 </head>
 
 <body>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            var $filter = $('.all-menu');
+            var $filterSpacer = $('<div />', {
+                "class": "vnkings-spacer",
+                "height": $filter.outerHeight()
+            });
+            if ($filter.size()) {
+                $(window).scroll(function() {
+                    if (!$filter.hasClass('menu-roll-200') && $(window).scrollTop() > $filter.offset().top) {
+                        $filter.before($filterSpacer);
+                        $filter.addClass("menu-roll-200");
+                    } else if ($filter.hasClass('menu-roll-200') && $(window).scrollTop() < $filterSpacer.offset().top) {
+                        $filter.removeClass("menu-roll-200");
+                        $filterSpacer.remove();
+                    }
+                });
+            }
+
+        });
+    </script>
     <div class="site-wrapper">
         <div class="container-fluid">
             <!-- -----------------------site header----------------------------- -->
@@ -50,58 +73,65 @@
                     </div>
 
                     <!-- ----------------------------line header menu------------------------------ -->
-                    <div class="site-menu">
-                        <div class="container">
-                            <div class="all-content">
-                                <div class="logo">
-                                    <a href="">
-                                        <img src="https://demo.bravisthemes.com/arcik/wp-content/uploads/2021/09/logo-dark.png" alt="">
-                                    </a>
-                                </div>
-
-                                <div class="container">
-                                    <div class="menu-center ">
-                                        <ul>
-                                            <li><a href="">Demos <i class="fa-solid fa-angle-down"></i></a></li>
-                                            <li class="about-us"><a href="">About Us</a></li>
-                                            <li><a href="">Services <i class="fa-solid fa-angle-down"></i></a></li>
-                                            <li><a href="">Portfolio <i class="fa-solid fa-angle-down"></i></a></li>
-                                            <li><a href="">Pages <i class="fa-solid fa-angle-down"></i></a></li>
-                                            <li><a href="">News</a></li>
-                                            <li><a href="">Contact</a></li>
-                                        </ul>
+                    <div class="all-menu" id="fix-nav">
+                        <div class="site-menu">
+                            <div class="container">
+                                <div class="all-content">
+                                    <div class="logo">
+                                        <a href="">
+                                            <img src="https://demo.bravisthemes.com/arcik/wp-content/uploads/2021/09/logo-dark.png" alt="">
+                                        </a>
                                     </div>
-                                </div>
 
-
-                                <div class="button-right">
-                                    <div class="button">
-                                        <button type="button"><i class="fa-solid fa-power-off"></i></button>
+                                    <div class="container">
+                                        <div class="menu-center ">
+                                            <ul>
+                                                <li><a href="">Demos <i class="fa-solid fa-angle-down"></i></a></li>
+                                                <li class="about-us"><a href="">About Us</a></li>
+                                                <li><a href="">Services <i class="fa-solid fa-angle-down"></i></a></li>
+                                                <li><a href="">Portfolio <i class="fa-solid fa-angle-down"></i></a></li>
+                                                <li><a href="">Pages <i class="fa-solid fa-angle-down"></i></a></li>
+                                                <li><a href="">News</a></li>
+                                                <li><a href="">Contact</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="menu-hide">
-                                    <button type="button" onclick="showmenu()">
+
+
+                                    <div class="button-right">
+                                        <div class="button">
+                                            <button type="button" onclick="exitinfo()">
+                                            <i class="fa-solid fa-o top"></i>
+                                            <i class="fa-solid fa-o center"></i>
+                                            <i class="fa-solid fa-o bottom"></i>
+                                        </button>
+                                        </div>
+                                    </div>
+                                    <div class="menu-hide">
+                                        <button type="button" onclick="showmenu()">
                                         <i class="fa fa-bars"></i>
                                     </button>
 
+                                    </div>
+                                </div>
+                                <div class="menu-991" id="menu-991">
+                                    <ul>
+                                        <li><a href="">Demos <i class="fa-solid fa-angle-down"></i></a></li>
+                                        <li class="about-us"><a href="">About Us</a></li>
+                                        <li><a href="">Services <i class="fa-solid fa-angle-down"></i></a></li>
+                                        <li><a href="">Portfolio <i class="fa-solid fa-angle-down"></i></a></li>
+                                        <li><a href="">Pages <i class="fa-solid fa-angle-down"></i></a></li>
+                                        <li><a href="">News</a></li>
+                                        <li><a href="">Contact</a></li>
+                                    </ul>
+
                                 </div>
                             </div>
-                            <div class="menu-991" id="menu-991">
-                                <ul>
-                                    <li><a href="">Demos <i class="fa-solid fa-angle-down"></i></a></li>
-                                    <li class="about-us"><a href="">About Us</a></li>
-                                    <li><a href="">Services <i class="fa-solid fa-angle-down"></i></a></li>
-                                    <li><a href="">Portfolio <i class="fa-solid fa-angle-down"></i></a></li>
-                                    <li><a href="">Pages <i class="fa-solid fa-angle-down"></i></a></li>
-                                    <li><a href="">News</a></li>
-                                    <li><a href="">Contact</a></li>
-                                </ul>
 
-                            </div>
+
                         </div>
-
-
                     </div>
+
                 </div>
 
             </div>
@@ -129,461 +159,474 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-1.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-1.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-2.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-2.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-3.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-3.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-4.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-4.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-5.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-5.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-6.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-6.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-7.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-7.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-8.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-8.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-9.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-9.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-10.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-10.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-11.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-11.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <a href="">
-                                <div class="item--inner">
-                                    <div class="item-image">
-                                        <img src="./images/content-img-12.png" alt="">
-                                        <div class="content-image">
-                                            <h6>
-                                                ARCHITECTURE
-                                            </h6>
-                                        </div>
+
+                            <div class="item--inner">
+                                <div class="item-image">
+                                    <a href="">
+                                        <img src="./images/content-img-12.png" alt=""> </a>
+                                    <div class="content-image">
+                                        <h6>
+                                            ARCHITECTURE
+                                        </h6>
+                                    </div>
+
+                                </div>
+                                <div class="item--content">
+                                    <div class="date">
+                                        <ul>
+                                            <li>
+                                                <p>NOVEMBER 19, 2021</p>
+                                            </li>
+                                            <li>
+                                                <p>ADMIN</p>
+                                            </li>
+                                        </ul>
 
                                     </div>
-                                    <div class="item--content">
-                                        <div class="date">
-                                            <ul>
-                                                <li>
-                                                    <p>NOVEMBER 19, 2021</p>
-                                                </li>
-                                                <li>
-                                                    <p>ADMIN</p>
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div class="title">
-                                            <h5>
-                                                Agency is the capacity of an actor to act in a given
-                                            </h5>
-                                        </div>
-                                        <div class="read-more">
-                                            <a href="">Read more</a>
-                                        </div>
+                                    <div class="title">
+                                        <h5>
+                                            Agency is the capacity of an actor to act in a given
+                                        </h5>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="">Read more</a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
 
 
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -688,6 +731,89 @@
             </div>
 
         </div>
+
+    </div>
+    <div class="button-menu" id="out-info">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-9 left " onclick="exitinfo()" id="out-info"></div>
+                <div class="col-xl-3 right">
+                    <div class="all-content">
+                        <div class="click-out">
+                            <button onclick="exitinfo()">
+                                <i class="fa-regular fa-x"></i>
+                            </button>
+                        </div>
+                        <div class="content-arcik">
+                            <div class="logo">
+                                <img src="https://demo.bravisthemes.com/arcik/wp-content/uploads/2021/09/logo-dark.png" alt="">
+                            </div>
+                            <div class="content">
+                                <p>We are experienced professionals who understand that It services is changing, and are true partners who care about your future business success.</p>
+                            </div>
+                        </div>
+                        <div class="recent-post">
+                            <div class="title">
+                                <h2>Recent Posts</h2>
+                            </div>
+                            <div class="content-recent">
+                                <div class="content-1">
+                                    <div class="img">
+                                        <img src="https://demo.bravisthemes.com/arcik/wp-content/uploads/2021/10/banner-faqs-80x80.jpg" alt="">
+
+                                    </div>
+                                    <div class="in-content">
+                                        <h6>
+                                            Foraged Decor Is the Effortlessly Cool Design
+                                        </h6>
+                                        <span><i class="fa-solid fa-calendar-days"></i> January 17, 2022</span>
+                                    </div>
+                                </div>
+                                <div class="content-1">
+                                    <div class="img">
+                                        <img src="https://demo.bravisthemes.com/arcik/wp-content/uploads/2021/11/portfolio-8-80x80.jpg" alt="">
+
+                                    </div>
+                                    <div class="in-content">
+                                        <h6>
+                                            22 Home Decor Trends to Try in 2022
+                                        </h6>
+                                        <span><i class="fa-solid fa-calendar-days"></i> January 17, 2022</span>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="recent-post social">
+                            <div class="title">
+                                <h2>Social</h2>
+                            </div>
+                            <div class="network">
+                                <div class="border-out">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <div class="border-out"><i class="fa-brands fa-youtube"></i></div>
+                                <div class="border-out"><i class="fa-brands fa-twitter"></i></div>
+                                <div class="border-out"><i class="fa-brands fa-instagram"></i></div>
+
+                            </div>
+                            <div class="copy">
+                                <span>
+                                    © 2022 Arcik – BravisThemes.
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 
     </div>
 </body>
