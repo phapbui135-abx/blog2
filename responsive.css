@@ -1,6 +1,6 @@
 @media screen and (max-width: 1800px) {
     .site-header .site-menu .all-content .logo {
-        left: 20px;
+        padding-left: 20px;
     }
     .site-header .site-menu .all-content .button-right button {
         right: 20px;
@@ -11,12 +11,18 @@
 }
 
 @media screen and (max-width: 1500px) {
-    .site-header .site-menu .all-content .menu-center ul li {
-        padding: 0 20px;
+    .site-header .site-menu .all-content .menu-center>ul>li {
+        padding: 40px 20px;
     }
     .site-header .site-menu .all-content .menu-center {
         display: flex;
         justify-content: center;
+    }
+    .site-header .site-menu .all-content .menu-center>ul>li>ul {
+        top: 132px;
+    }
+    .site-header .site-menu .all-content .menu-center>ul>li>ul {
+        top: 102px;
     }
 }
 
@@ -32,7 +38,6 @@
     }
     .site-header .menu-hide {
         display: block;
-        top: 35px;
         right: 20px;
     }
     .site-page-title .all-content {
@@ -64,9 +69,6 @@
     }
     .site-header .menu-991 {
         top: 100px;
-    }
-    .site-footer .end .right-info {
-        display: none;
     }
     .site-footer .left img {
         width: 100%;
